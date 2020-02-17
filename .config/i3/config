@@ -230,7 +230,7 @@ exec --no-startup-id numlockx on
 #---------#
 # POLYBAR #
 #---------#
-exec_always --no-startup-id ~/.config/i3/scripts/polybar.sh
+exec_always --no-startup-id ~/.config/polybar/polybar.sh
 
 #----------------#
 #  APPLICATIONS  #
