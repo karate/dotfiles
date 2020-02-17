@@ -1,0 +1,295 @@
+#--------#
+# BASICS #
+#--------#
+
+# Mod key
+set $mod Mod4
+
+# Font
+font pango:DejaVu Sans Mono 9
+
+#-----------------------------#
+# WINDOW / WORKSPACE COMMANDS #
+#-----------------------------#
+
+# Modifier to drag floating windows
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+q kill
+
+# move windows
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# select windows wth arrows
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# same thing with vim keys
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# split in horizontal orientation
+bindsym $mod+bar split h
+
+# split in vertical orientation
+bindsym $mod+minus split v
+
+# workspace variables
+#set $ws1 "1:  "
+set $ws1 "1:  "
+#set $ws2 "2:  "
+set $ws2 "2:  "
+set $ws3 "3:  "
+set $ws4 "4:  "
+set $ws5 "5:  "
+set $ws6 "6:  "
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+# MAP WORKSPACES TO MONITORS
+workspace $ws1 output HDMI-1
+workspace $ws2 output HDMI-1
+workspace $ws3 output VGA-1
+workspace $ws4 output VGA-1
+workspace $ws5 output VGA-1
+workspace $ws6 output VGA-1
+workspace $ws7 output VGA-1
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym Mod1+Tab workspace back_and_forth
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+
+# SCRATCHPAD
+bindsym $mod+Shift+BackSpace move scratchpad
+bindsym $mod+BackSpace scratchpad show
+
+#----------------#
+# BASIC BINDINGS #
+#----------------#
+
+# program launcher
+#bindsym $mod+d exec rofi -theme gruvbox-dark-soft -show run
+bindsym $mod+d exec dmenu_run -b -sb "#ffb52a" -nb "#222222" -sf "#222222" -nf "#eeeeee" -fn "DejaVu Sans Mono"
+
+# window switcher
+#bindsym Mod1+Tab exec rofi -theme gruvbox-dark-soft -show window
+
+# passmenu
+bindsym $mod+p exec ~/.config/i3/scripts/keepass_dmenu.sh
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+space floating toggle
+
+# start a terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite
+bindsym $mod+u exec urxvt256c -e sh -c "tmux"
+# bindsym $mod+s exec st
+
+#bindsym $mod+Return exec st
+# Add the following line in ~/.profile
+# set -Ux TERMINAL '/usr/bin/gnome-terminal'
+
+# restart i3 in place
+bindsym $mod+Shift+r restart
+
+# exit i3
+bindsym $mod+Shift+e exec i3-msg exit
+
+# resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        #
+        # Pressing left will shrink the window’s width.
+        bindsym Left resize shrink width 10 px or 10 ppt
+        # Pressing down will grow the window’s height.
+        bindsym Down resize grow height 10 px or 10 ppt
+        # Pressing up will shrink the window’s height.
+        bindsym Up resize shrink height 10 px or 10 ppt
+        # Pressing right will grow the window’s width.
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the hjkl keys
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# Show calendar with dunst
+bindsym $mod+c exec ~/.config/i3/scripts/calendar.sh
+
+#Show tmux cheatsheet
+bindsym $mod+t exec feh ~/Pictures/tmux-cheatsheet.png
+
+# FLOATING WINDOWS
+for_window [class="^[Kk]eepass.*"] floating enable
+for_window [class="Transmission-gtk"] floating enable
+for_window [class="Peek"] floating enable
+for_window [class="file-roller"] floating enable
+for_window [class="nautilus"] floating enable
+for_window [class="pcmanfm"] floating enable
+for_window [class="feh"] floating enable
+for_window [class="Gnome-calculator"] floating enable
+
+# GAPS
+for_window [class="^.*"] border pixel 2
+#for_window [class="Gnome-terminal"] border pixel 5
+#for_window [class="st"] border pixel 5
+#gaps inner 0
+#smart_gaps on
+
+# BORDERS
+#smart_borders on
+
+# COLORS
+# Yellow-Orange
+set $ORANGE #fc9d37
+set $L_ORANGE #877461 
+# Gray
+set $GREY     #222222
+# Blue
+set $BLUE #0000ff
+
+# class                 border    backgr    text      indicator   child_border
+client.focused          $ORANGE   $ORANGE   $GREY     $ORANGE
+client.focused_inactive $L_ORANGE $L_ORANGE $ORANGE   $L_ORANGE
+client.unfocused        $L_ORANGE $L_ORANGE $ORANGE   $L_ORANGE
+client.urgent           $BLUE     $ORANGE   $BLUE     $BLUE
+client.background       $GREY
+
+# MULTIMEDIA KEYS
+bindsym XF86AudioRaiseVolume exec amixer -q set Master Front 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master Front 5%-
+bindsym XF86AudioMute exec amixer -q set Master toggle
+# Next Song
+bindsym XF86AudioNext exec --no-startup-id cmus-remote --next && pkill --signal SIGRTMIN+13 i3blocks
+# Prev Song
+bindsym XF86AudioPrev exec --no-startup-id cmus-remote --prev && pkill --signal SIGRTMIN+13 i3blocks
+# Play Pause
+bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause && pkill --signal SIGRTMIN+13 i3blocks
+
+#---------#
+# STARTUP #
+#---------#
+
+# WALLPAPER
+#exec --no-startup-id nitrogen --restore
+#exec_always --no-startup-id feh --bg-center ~/Pictures/wallpapers/gnu-card-black-demo.png
+exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpapers/minimal/
+bindsym $mod+b exec feh --randomize --bg-fill ~/Pictures/wallpapers/minimal/
+
+# COMPOSITE MANAGER
+exec_always --no-startup-id killall picom; picom
+
+# ENABLE NUMLOCK
+exec --no-startup-id numlockx on
+
+#---------#
+# POLYBAR #
+#---------#
+exec_always --no-startup-id ~/.config/i3/scripts/polybar.sh
+
+#----------------#
+#  APPLICATIONS  #
+#----------------#
+
+# MAP APPLICATIONS TO WORKSPACES
+# assign [class="^Sublime_text$"] $ws2
+assign [class="^Thunderbird$"] $ws6
+assign [class="^vlc$"] $ws9
+
+# AUTO START APPLICATIONS
+exec --no-startup-id i3-msg 'workspace "'$ws2'"; exec termite'
+exec --no-startup-id i3-msg 'workspace "'$ws2'"; exec termite'
+exec --no-startup-id i3-msg 'workspace "'$ws3'"; exec /usr/bin/firefox'
+#exec --no-startup-id i3-msg 'workspace "'$ws1'"; exec subl'
+#exec --no-startup-id i3-msg 'workspace "'$ws4'"; exec st'
+
+exec thunderbird
+#exec hexchat
+
+exec --no-startup-id i3-msg 'workspace "'$ws2'"; exec st -c cmus -e cmus'
+for_window [class="cmus"] move window to scratchpad
+
+exec --no-startup-id i3-msg 'workspace "'$ws5'"; exec urxvt256c -c matterhorn -e matterhorn'
+
+# KEYBOARD LAYOUT AND OVERRIDES
+exec_always --no-startup-id ~/.config/i3/scripts/keyboard.sh
+
+# PRINTSCREEN
+#bindsym Print exec "import Screenshot-(date +%Y-%m-%d-%H%M%S).png"
+bindsym Print exec ~/.config/i3/scripts/screenshot.sh
+
+# LOCK SCREEN
+bindsym control+mod1+l exec ~/.config/i3/scripts/rick-lock.sh
+
+# Master / stack layout
+bindsym $mod+F1 layout splitv;\
+                move left;\
+                resize grow right 15 px or 15 ppt;\
+                split v;\
+                layout stacking;
+
+#bar {
+#    position bottom
+#    i3bar_command     i3bar
+#    status_command    i3blocks
+#    font              pango:Source Code Pro, Font Awesome 5 Free Regular 13px
+#    mode dock
+#    workspace_buttons yes
+#    tray_output primary
+#
+#
+#    colors {
+#        background #222222
+#        statusline #ffb52a
+#
+#        focused_workspace  #ffb52a #ffb52a  #222222
+#        active_workspace   #ffffff #333333
+#        inactive_workspace #888888 #222222
+#        urgent_workspace   #222222 #900000 #ffffff
+#    }
+#}
