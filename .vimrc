@@ -71,7 +71,7 @@
   Plug 'mhinz/vim-signify'
   
   " VDebug
-  Plug 'vim-vdebug/vdebug'
+  "Plug 'vim-vdebug/vdebug'
   
   " base16 colorscheme
   Plug 'chriskempson/base16-vim'
@@ -80,7 +80,7 @@
   Plug 'jiangmiao/auto-pairs'
   
   " dadbod (DB interface)
-  Plug 'tpope/vim-dadbod'
+  "Plug 'tpope/vim-dadbod'
 
   " vim-sandwich (vim-suround alternative)
   Plug 'machakann/vim-sandwich'
