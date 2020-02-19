@@ -216,9 +216,8 @@ bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause && pkill --signal
 #---------#
 
 # WALLPAPER
-#exec --no-startup-id nitrogen --restore
-#exec_always --no-startup-id feh --bg-center ~/Pictures/wallpapers/gnu-card-black-demo.png
-exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpapers/minimal/
+# background is now set in .xinitrc
+#exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpapers/minimal/
 bindsym $mod+b exec feh --randomize --bg-fill ~/Pictures/wallpapers/minimal/
 
 # COMPOSITE MANAGER
