@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # This script uses the Jira REST API to get all open issues assigned to the
-# next available version for each project projects.
+# next available version for each project.
 
 # Requirements:
 # - jq: json query tool, to parse the API response.
