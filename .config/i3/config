@@ -96,8 +96,8 @@ bindsym $mod+BackSpace scratchpad show
 #----------------#
 
 # program launcher
-#bindsym $mod+d exec rofi -theme gruvbox-dark-soft -show run
-bindsym $mod+d exec dmenu_run -b -sb "#ffb52a" -nb "#222222" -sf "#222222" -nf "#eeeeee" -fn "DejaVu Sans Mono"
+bindsym $mod+d exec rofi -show run
+#bindsym $mod+d exec dmenu_run -b -sb "#ffb52a" -nb "#222222" -sf "#222222" -nf "#eeeeee" -fn "DejaVu Sans Mono"
 
 # window switcher
 #bindsym Mod1+Tab exec rofi -theme gruvbox-dark-soft -show window
