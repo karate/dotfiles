@@ -173,6 +173,7 @@ for_window [class="nautilus"] floating enable
 for_window [class="pcmanfm"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="Skype"] floating enable
 
 # GAPS
 for_window [class="^.*"] border pixel 2
