@@ -202,7 +202,10 @@
   nnoremap <Left> <Nop>
   nnoremap <Right> <Nop>
 
-  "" NETRW
+  " change working directory
+  nnoremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
+  
+  " NETRW
   let g:netrw_banner = 0
   let g:netrw_liststyle = 0
   " 0 - open files in the same window  (default))
