@@ -185,6 +185,8 @@
   nnoremap <C-P> :Files<CR>
   nnoremap <C-B> :Buffers<CR>
   nnoremap <C-H> :History<CR>
+  " Ripgrep - Search in files
+  nnoremap <leader><space> :Rg<CR>
   
   " Omni completion
   inoremap <C-Space> <C-x><C-o>
