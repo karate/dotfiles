@@ -81,7 +81,7 @@
   
   " dadbod (DB interface)
   "Plug 'tpope/vim-dadbod'
-
+  
   " vim-sandwich (vim-suround alternative)
   Plug 'machakann/vim-sandwich'
   call plug#end()
@@ -201,15 +201,16 @@
   nnoremap <Down> <Nop>
   nnoremap <Left> <Nop>
   nnoremap <Right> <Nop>
-
   
   " Copy to system clipboard
   nnoremap <leader>y "+y
   vnoremap <leader>y "+y
-
+  
   " change working directory
   nnoremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
   
+  " Clear search highlight
+  map <leader>/ :nohlsearch
   " NETRW
   let g:netrw_banner = 0
   let g:netrw_liststyle = 0
