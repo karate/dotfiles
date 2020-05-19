@@ -212,7 +212,7 @@
   nnoremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
   
   " Clear search highlight
-  map <leader>/ :nohlsearch
+  map <leader>/ :nohlsearch<CR>
   " NETRW
   let g:netrw_banner = 0
   let g:netrw_liststyle = 0
