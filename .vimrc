@@ -50,12 +50,21 @@
   
   set lazyredraw
   set ttyfast
-
+  
+  " hide coc warning on nvim version
+  " let g:coc_disable_startup_warning = 1
+  " Onmi completion: do not select the first match, and show the popup
+  " even when there's only one match.
+  set completeopt=longest,menuone
+  
   "" PLUGINS
   " Specify a directory for plugins
   " - Avoid using standard Vim directory names like 'plugin'
   call plug#begin('~/.vim/plugged')
   
+  " COC
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
   " FuzzyFinder
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
