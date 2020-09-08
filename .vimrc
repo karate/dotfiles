@@ -87,6 +87,9 @@
   call plug#end()
 
   "" AIRLINE-VIM
+  " Only load the following extentions
+  let g:airline_extentions = ['default', 'tagbar', 'tabline']
+  let g:airline#extensions#disable_rtp_load = 1
   let g:airline#extensions#tabline#enabled = 1
 
   "" VIM-SIGNIFY
