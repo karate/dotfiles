@@ -207,6 +207,8 @@
   " Copy to system clipboard
   nnoremap <leader>y "+y
   vnoremap <leader>y "+y
+  " Paste from system clipboad
+  nnoremap <leader>p "+p
   
   " change working directory
   nnoremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
