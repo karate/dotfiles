@@ -218,6 +218,11 @@
   
   " Clear search highlight
   map <leader>/ :nohlsearch<CR>
+  " Go to next function definition
+  nnoremap <Leader>f ]m
+  " Go to previous function definition
+  nnoremap <Leader>F [m
+
   " NETRW
   let g:netrw_banner = 0
   let g:netrw_liststyle = 0
