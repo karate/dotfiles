@@ -300,13 +300,6 @@ bindsym Print exec ~/.config/i3/scripts/screenshot.sh
 # LOCK SCREEN
 bindsym control+mod1+l exec ~/.config/i3/scripts/rick-lock.sh
 
-# Master / stack layout
-bindsym $mod+F1 layout splitv;\
-                move left;\
-                resize grow right 15 px or 15 ppt;\
-                split v;\
-                layout stacking;
-
 #bar {
 #    position bottom
 #    status_command      i3blocks
