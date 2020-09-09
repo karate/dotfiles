@@ -256,7 +256,7 @@ bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause && pkill --signal
 bindsym $mod+b exec feh --randomize --bg-fill ~/Pictures/wallpapers/minimal/
 
 # COMPOSITE MANAGER
-exec_always --no-startup-id killall picom; picom
+#exec_always --no-startup-id killall picom; picom
 
 # ENABLE NUMLOCK
 exec --no-startup-id numlockx on
