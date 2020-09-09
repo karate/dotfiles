@@ -279,7 +279,7 @@ assign [class="^vlc$"] $ws9
 exec --no-startup-id i3-msg 'workspace "'$ws2'"; exec termite'
 exec --no-startup-id i3-msg 'workspace "'$ws2'"; exec termite'
 exec --no-startup-id i3-msg 'workspace "'$ws3'"; exec /usr/bin/firefox'
-#exec --no-startup-id i3-msg 'workspace "'$ws1'"; exec subl'
+exec --no-startup-id nm-applet
 #exec --no-startup-id i3-msg 'workspace "'$ws4'"; exec st'
 
 exec thunderbird
