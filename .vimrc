@@ -231,6 +231,8 @@
   nnoremap <Leader>f ]m
   " Go to previous function definition
   nnoremap <Leader>F [m
+  " Replace word under cursor
+  nmap <Leader>s :%s/\<<C-r><C-w>\>//gI<Left><Left><Left>
 
   " NETRW
   let g:netrw_banner = 0
