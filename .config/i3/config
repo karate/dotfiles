@@ -174,11 +174,13 @@ for_window [class="^[Kk]eepass.*"] floating enable
 for_window [class="Transmission-gtk"] floating enable
 for_window [class="Peek"] floating enable
 for_window [class="file-roller"] floating enable
-for_window [class="nautilus"] floating enable
-for_window [class="pcmanfm"] floating enable
+for_window [class="Nautilus"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="Skype"] floating enable
+for_window [class="org.remmina.Remmina"] floating enable
+# Android Studio splash screen
+for_window [class="sun-awt-X11-XWindowPeer"] floating enable
 
 # GAPS
 for_window [class="^.*"] border pixel 2
