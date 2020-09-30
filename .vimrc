@@ -233,6 +233,9 @@
   nnoremap <Leader>F [m
   " Replace word under cursor
   nmap <Leader>s :%s/\<<C-r><C-w>\>//gI<Left><Left><Left>
+  
+  " Show recent svn log messages
+  nmap <leader>l :belowright new \| 0read !svn log -l 20 \| grep -Ev '^(-+)?(r.+)?$'<cr>gg
 
   " NETRW
   let g:netrw_banner = 0
