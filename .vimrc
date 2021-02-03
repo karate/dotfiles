@@ -29,6 +29,7 @@
   
   set relativenumber  " Show relative line numbers
   set number          " Show absolute line number on current line
+  set scrolloff=4     " Keep 4 lines visible around the curson line
   syntax on           " Enable syntax highlighting
   set noshowmode      " Disable Mode display on the last line
   
