@@ -22,6 +22,8 @@
   
   set hlsearch        " Highlight previous search matches
   set incsearch       " Show search matches as you type
+  set ignorecase      " Ignore case in search patters
+  set smartcase       " Ignore case only if search pattern is lowercase
   
   set history=50      " keep 50 lines of command line history
   
