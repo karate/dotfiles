@@ -30,6 +30,7 @@
   set relativenumber  " Show relative line numbers
   set number          " Show absolute line number on current line
   syntax on           " Enable syntax highlighting
+  set noshowmode      " Disable Mode display on the last line
   
   set wildmenu        " Command-line completion
   set wildmode=longest:full,full
