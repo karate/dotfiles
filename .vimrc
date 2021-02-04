@@ -7,7 +7,6 @@
   if has('vim')                  " Only in vim, ignore in nvim
     set shell=/usr/bin/zsh       " Set default shell to zsh
     set ttyfast                  " Improves smoothness on fast terminals
-    set nocompatible             " Do not run in compatible mode (vi))
   endif
   
   set list                       " Show tabs and trailing spaces
