@@ -1,0 +1,48 @@
+#! /bin/sh
+
+sxhkd &
+$HOME/.config/polybar/polybar.sh &
+$HOME/.fehbg &
+picom &
+
+#bspc config bottom_padding 30
+bspc monitor DP-1 -d code terminal
+bspc monitor HDMI-1 -d web mail other
+
+bspc config border_width          2
+bspc config window_gap            0
+
+bspc config focused_border_color  '#ff6600'
+bspc config split_ratio           0.6
+bspc config borderless_monocle    true
+bspc config borderless_single     true
+bspc config gapless_monocle       true
+bspc config single_monocle        true
+#bspc config gapless_single        true
+bspc config focus_follows_pointer true
+
+bspc rule -a Gimp desktop=other state=floating follow=on
+bspc rule -a Thunderbird desktop=mail
+bspc rule -a firefox desktop=web
+bspc rule -a mplayer2 state=floating
+bspc rule -a feh state=floating
+bspc rule -a ark state=floating
+bspc rule -a dolphin state=floating
+bspc rule -a Screenkey manage=off
+
+# For usage with KDE (replace kwin)
+#bspc rule -a plasmashell state=floating layer=above focus=off sticky=on border=off
+#bspc rule -a Plasma state=floating
+#bspc rule -a plasma-desktop state=floating
+#bspc rule -a win7 state=floating
+#bspc rule -a krunner state=floating
+#bspc rule -a Kmix state=floating
+#bspc rule -a Klipper state=floating
+#bspc rule -a Plasmoidviewer state=floating
+
+# Keyboard language switcher
+$HOME/.config/i3/scripts/keyboard.sh
+
+# Startup apps
+thunderbird &
+#firefox &
