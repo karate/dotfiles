@@ -20,6 +20,7 @@ bspc config gapless_monocle       true
 bspc config single_monocle        true
 #bspc config gapless_single        true
 bspc config focus_follows_pointer true
+bspc config pointer_follows_focus true
 
 bspc rule -a Gimp desktop=other state=floating follow=on
 bspc rule -a Thunderbird desktop=mail
