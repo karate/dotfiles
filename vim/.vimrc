@@ -44,58 +44,42 @@
     let g:python_recommended_style=0
     autocmd FileType python setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4
   augroup END
+  " For js files, set indent to 2 spaces
+  augroup python_settings
+    autocmd!
+    let g:python_recommended_style=0
+    autocmd FileType javascript setlocal tabstop=2 softtabstop=2 noexpandtab shiftwidth=2
+  augroup END
 
   "" PLUGINS
-  " Specify a directory for plugins
-  " - Avoid using standard Vim directory names like 'plugin'
   call plug#begin('~/.vim/plugged')
-  
-  " FuzzyFinder
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
-  
-  " vim-airline: status and tabline
+  Plug 'chengzeyi/fzf-preview.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  
-  " Tagbar
-  Plug 'git://github.com/majutsushi/tagbar'
-  
-  " VCS gutter
+  Plug 'preservim/tagbar'
   Plug 'mhinz/vim-signify'
-  
-  " base16 colorscheme
   Plug 'chriskempson/base16-vim'
-  "Plug 'morhetz/gruvbox'
-  
-  " Auto-pairs
-  "Plug 'jiangmiao/auto-pairs'
-  
-  " Coloresque
-  "Plug 'ap/vim-css-color'
-  
-  " Arduino
-  "Plug 'stevearc/vim-arduino'
-  
-  " vim-sandwich (vim-suround alternative)
-  Plug 'machakann/vim-sandwich'
-  
-  " ALE (asynchronous linting)
-  "Plug 'dense-analysis/ale'
-  
-  Plug 'Yilin-Yang/vim-markbar'
+  Plug 'morhetz/gruvbox'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'aserebryakov/vim-todo-lists'
+  "Plug 'Yilin-Yang/vim-markbar'
   Plug 'junegunn/vim-peekaboo'
-  
-  Plug 'nelsyeung/twig.vim'
-  
+  Plug 'machakann/vim-sandwich'
   " Fern
   Plug 'lambdalisue/fern.vim'
   Plug 'lambdalisue/nerdfont.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'antoinemadec/FixCursorHold.nvim'
-  
-  " Drupal 8
+  "Plug 'ap/vim-css-color'
+  "Plug 'stevearc/vim-arduino'
   "Plug 'https://git.drupalcode.org/project/vimrc.git', { 'branch': '8.x-1.x', 'rtp': 'bundle/vim-plugin-for-drupal' }
+  
+  " Code completion and linting. Please chose one.
+  "Plug 'dense-analysis/ale'
+  "Plug 'Valloric/YouCompleteMe'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   call plug#end()
 
   "" AIRLINE-VIM
@@ -109,28 +93,30 @@
 
   "" COLORS
   set termguicolors " Enable 24-bit color in the TUI
-  colorscheme base16-default-dark
+  colorscheme base16-gruvbox-dark-medium
   hi Error guibg=#282828 guifg=#ab4642
   hi Error guibg=#282828 guifg=#fba922
   "set t_Co=256  " In case $TERM is not set correctly, this tells vim to use 256 colors
   "let base16colorspace=256
 
   "" ALE
-  let g:ale_completion_enabled = 1
-  let g:ale_lint_on_enter = 0
-  let g:ale_lint_on_save = 1
-  let g:ale_sign_error = '●'
-  let g:ale_sign_warning = '.'
+  "let g:ale_completion_enabled = 1
+  "let g:ale_lint_on_enter = 0
+  "let g:ale_lint_on_save = 1
+  "let g:ale_sign_error = '●'
+  "let g:ale_sign_warning = '.'
 
   "" CURSOR
   " Change cursor in Insert and Replace modes
   if exists('$TMUX')
   " tmux will only forward escape sequences to the terminal if surrounded by a
   " DCS sequence
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-    "let &t_SR .= "\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
-    "let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
+    "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    let &t_SR .= "\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
+    let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
+    "let &t_SI .= "\e[=1c"
+    "let &t_EI .= "\e[=2c"
   else
     let &t_SI = "\<Esc>[6 q"
     let &t_SR = "\<Esc>[4 q"
@@ -161,9 +147,11 @@
   nmap <Leader>w :up<CR>
   " Quit
   nmap <Leader>q :q<CR>
-
+  " Close buffer
+  nnoremap <Leader>d :bd!<CR>
+  
   " Fern
-  noremap <Leader>t :Fern . -drawer -toggle<CR>
+  noremap <Leader>t :Fern . -drawer -toggle -width=60 -reveal=%<CR>
   let g:fern#renderer = "nerdfont"
   
   " F8 to clear drupal cache
@@ -184,30 +172,33 @@
   nnoremap <C-j> <C-e>
   nnoremap <C-k> <C-y>
   
-  " Autoclose
-  inoremap ' ''<left>
-  inoremap " ""<left>
-  inoremap ` ``<left>
-  inoremap ( ()<left>
-  inoremap [ []<left>
-  inoremap { {}<left>
-  " Autoclose with ; at the end
-  inoremap '; '';<left><left>
-  inoremap `; ``;<left><left>
-  inoremap "; "";<left><left>
-  inoremap (; ();<left><left>
-  inoremap [; [];<left><left>
-  inoremap {; {};<left><left>
-  " Autoclose with Enter
-  inoremap {<CR> {<CR>}<ESC>O<Tab>
-  inoremap {;<CR> {<CR>};<ESC>O<Tab>
+  "" Autoclose
+  "inoremap ' ''<left>
+  "inoremap " ""<left>
+  "inoremap ` ``<left>
+  "inoremap ( ()<left>
+  "inoremap [ []<left>
+  "inoremap { {}<left>
+  "" Autoclose with ; at the end
+  "inoremap '; '';<left><left>
+  "inoremap `; ``;<left><left>
+  "inoremap "; "";<left><left>
+  "inoremap (; ();<left><left>
+  "inoremap [; [];<left><left>
+  "inoremap {; {};<left><left>
+  "" Autoclose with Enter
+  "inoremap {<CR> {<CR>}<ESC>O<Tab>
+  "inoremap {;<CR> {<CR>};<ESC>O<Tab>
   
-  " FZF
+  " fzf-preview
   nnoremap <Leader>f :Files<CR>
   nnoremap <Leader>b :Buffers<CR>
   nnoremap <Leader>h :History<CR>
+  " Use fzf-preview
+  nnoremap <Leader>m :FZFMarks<CR>
   " Ripgrep - Search in files
-  nnoremap <leader><space> :Rg<CR>
+  " Use fzf-preview
+  nnoremap <leader><space> :FZFRg<CR>
   
   " Omni completion
   inoremap <C-Space> <C-x><C-o>
@@ -215,6 +206,7 @@
   if &diff
     nmap <C-j> ]c " Go to next change
     nmap <C-k> [c " Go to prevous change
+    nmap <F1> :qa<CR> " Close both splits
   endif
   " Copy to system clipboard
   nnoremap <leader>y "+y
@@ -231,6 +223,8 @@
   
   " Select pasted text
   nnoremap gp `[v`]
+  nmap gd <Plug>(coc-definition)
+
   " NETRW
   let g:netrw_banner = 0 " Hode banner
   let g:netrw_altv = 1

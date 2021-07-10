@@ -1,21 +1,23 @@
 URxvt*font:              xft:DejaVuSansMono:style=Book:size=10:antialias=True:hinting=true \
-                         xtf:PowerlineSymbols:size=10:antialias=True
+                         xtf:PowerlineSymbols:size=10:antialias=True \
+                         xtf:NotoColorEmoji:size=10:antialias=True \
 URxvt*boldFont:          xft:DejaVuSansMono:style=Bold:size=10:antialias=True:hinting=true \
                          xtf:PowerlineSymbols:size=10:antialias=True
+                         xtf:NotoColorEmoji:size=10:antialias=True \
 URxvt*urgentOnBell:     true
 URxvt*termName:         rxvt-unicode-256color
 URxvt*letterSpace:      0
 URxvt*scrollBar:        false
-URxvt*perl-lib:         /usr/lib64/urxvt/perl/
-URxvt*perl-ext-common:  default,matcher,selection-to-clipboard,-searchable-scrollback
+URxvt*perl-lib:         /usr/lib/urxvt/perl/
+URxvt*perl-ext-common:  default,matcher,selection-to-clipboard
+!URxvt.keysym.Control-Shift-c:     perl:pasta:copy
+!URxvt.keysym.Control-Shift-V:     perl:pasta:paste
 
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-! url matcher
-URxvt.url-launcher: /usr/bin/firefox
-URxvt.keysym.C-Delete: perl:matcher:list
-Urxvt.matcher.button:   1
 
+Urxvt*urlLauncher:      /usr/bin/firefox
+Urxvt*matcher.button:   1
 Urxvt*fading:           20
 !*fadeColor:             #000000
 Urxvt*visualBell:       true
@@ -45,7 +47,8 @@ urxvt*depth:            24
 !URxvt.tintColor:     #282828
 !URxvt.shading:      99
 
-*.foreground:   #E6E1DC
+!*.foreground:   #E6E1DC
+*.foreground:   #FFFFFF
 *.background:   #282828
 
 !URxvt.color12: rgb:5c/5c/ff
@@ -75,4 +78,3 @@ urxvt*depth:            24
 ! white
 *.color7: #FFFFFF
 *.color15: #FFFFFF
-

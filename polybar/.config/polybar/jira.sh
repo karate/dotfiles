@@ -19,9 +19,9 @@
 # ./jira.sh list
 
 # Jira instance URL.
-jira_url='https://jira.example.com';
+jira_url='https://jira.example.com'
 # Jira User
-user='foo';
+user='user';
 
 # Query settings
 assignee=$user;                               # Assigned to me

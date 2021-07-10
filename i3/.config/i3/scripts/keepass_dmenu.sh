@@ -23,12 +23,12 @@
 ### CONFIGURATION ###
 #####################
 
-#: Key file
-KEY_FILE=$HOME/KeePassX.key
+# Key file
+KEY_FILE=/path/to/keyfile.key
 # Database file
-DB_FILE=$HOME/keepassx.kdbx
+DB_FILE=/path/to/database.kdbx
 # Start from specified entry
-SELECTED_ENTRY='work'
+SELECTED_ENTRY=''
 # Timeout before the password is deleted from clipbord
 TIMEOUT=5
 

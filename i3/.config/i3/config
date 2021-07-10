@@ -48,26 +48,19 @@ bindsym $mod+bar split h
 bindsym $mod+minus split v
 
 # workspace variables
-#set $ws1 "1:  "
-set $ws1 "1:  "
-#set $ws2 "2:  "
-set $ws2 "2:  "
+set $ws1 "1:  "
+#set $ws2 "terminal:  "
+set $ws2 "2:  "
 set $ws3 "3:  "
-set $ws4 "4:  "
+set $ws4 "4:  "
 set $ws5 "5:  "
-set $ws6 "6:  "
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
 
 # MAP WORKSPACES TO MONITORS
-workspace $ws1 output HDMI-1
-workspace $ws2 output HDMI-1
-workspace $ws3 output VGA-1
-workspace $ws4 output VGA-1
-workspace $ws5 output VGA-1
-workspace $ws6 output VGA-1
-workspace $ws7 output VGA-1
+workspace $ws1 output DP-1
+workspace $ws2 output DP-1
+workspace $ws3 output HDMI-1
+workspace $ws4 output HDMI-1
+workspace $ws5 output HDMI-1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -75,11 +68,6 @@ bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym Mod1+Tab workspace back_and_forth
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -87,10 +75,6 @@ bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
 
 # SCRATCHPAD
 bindsym $mod+Shift+BackSpace move scratchpad
@@ -101,14 +85,14 @@ bindsym $mod+BackSpace scratchpad show
 #----------------#
 
 # program launcher
-bindsym $mod+d exec rofi -show run
-#bindsym $mod+d exec dmenu_run -b -sb "#ffb52a" -nb "#222222" -sf "#222222" -nf "#eeeeee" -fn "DejaVu Sans Mono"
+bindsym $mod+d exec $HOME/.config/rofi/launchers/colorful/launcher.sh
 
 # window switcher
-#bindsym Mod1+Tab exec rofi -theme gruvbox-dark-soft -show window
+bindsym Mod4+Tab exec rofi -theme gruvbox-dark-soft -show window
 
 # passmenu
 bindsym $mod+p exec ~/.config/i3/scripts/keepass_dmenu.sh
+
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
@@ -122,10 +106,8 @@ bindsym $mod+space floating toggle
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec termite
-bindsym $mod+u exec urxvt256c -e sh -c "tmux"
-# bindsym $mod+s exec st
+bindsym $mod+t exec --no-startup-id st -e tmux
+bindsym $mod+Return exec st
 
 #bindsym $mod+Return exec st
 # Add the following line in ~/.profile
@@ -163,34 +145,23 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-# Show calendar with dunst
-bindsym $mod+c exec ~/.config/i3/scripts/calendar.sh
-
-#Show tmux cheatsheet
-bindsym $mod+t exec feh ~/Pictures/tmux-cheatsheet.png
-
 # FLOATING WINDOWS
 for_window [class="^[Kk]eepass.*"] floating enable
-for_window [class="Transmission-gtk"] floating enable
+for_window [class="transmission"] floating enable
 for_window [class="Peek"] floating enable
 for_window [class="file-roller"] floating enable
-for_window [class="Nautilus"] floating enable
 for_window [class="feh"] floating enable
-for_window [class="Gnome-calculator"] floating enable
-for_window [class="Skype"] floating enable
+for_window [class="dolphin"] floating enable
 for_window [class="org.remmina.Remmina"] floating enable
+for_window [class="blueman"] floating enable
 # Android Studio splash screen
 for_window [class="sun-awt-X11-XWindowPeer"] floating enable
+for_window [class="osu!.exe"] floating enable
 
-# GAPS
-for_window [class="^.*"] border pixel 2
-#for_window [class="Gnome-terminal"] border pixel 5
-#for_window [class="st"] border pixel 5
-#gaps inner 0
-#smart_gaps on
 
 # BORDERS
-#smart_borders on
+default_border pixel 2
+hide_edge_borders smart
 
 # COLORS
 ## Use Base16 color scheme https://github.com/khamer/base16-i3
@@ -215,36 +186,15 @@ set $base0F #a16946
 # Property Name         Border  BG      Text    Indicator Child Border
 client.focused          $base0A $base0A $base00 $base0A $base0A
 client.focused_inactive $base03 $base03 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.unfocused        $base03 $base00 $base05 $base01 $base03
 client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
-
-## Yellow-Orange
-#set $ORANGE #fc9d37
-#set $L_ORANGE #877461
-## Gray
-#set $GREY     #222222
-## Blue
-#set $BLUE #0000ff
-#
-## class                 border    backgr    text      indicator   child_border
-#client.focused          $ORANGE   $ORANGE   $GREY     $ORANGE
-#client.focused_inactive $L_ORANGE $L_ORANGE $ORANGE   $L_ORANGE
-#client.unfocused        $L_ORANGE $L_ORANGE $ORANGE   $L_ORANGE
-#client.urgent           $BLUE     $ORANGE   $BLUE     $BLUE
-#client.background       $GREY
 
 # MULTIMEDIA KEYS
 bindsym XF86AudioRaiseVolume exec amixer -q set Master Front 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master Front 5%-
 bindsym XF86AudioMute exec amixer -q set Master toggle
-# Next Song
-bindsym XF86AudioNext exec --no-startup-id cmus-remote --next && pkill --signal SIGRTMIN+13 i3blocks
-# Prev Song
-bindsym XF86AudioPrev exec --no-startup-id cmus-remote --prev && pkill --signal SIGRTMIN+13 i3blocks
-# Play Pause
-bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause && pkill --signal SIGRTMIN+13 i3blocks
 
 #---------#
 # STARTUP #
@@ -252,15 +202,15 @@ bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause && pkill --signal
 
 # WALLPAPER
 # background is now set in .xinitrc
-#exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpapers/minimal/
-bindsym $mod+b exec feh --randomize --bg-fill ~/Pictures/wallpapers/minimal/
-
-# COMPOSITE MANAGER
-#exec_always --no-startup-id killall picom; picom
+exec_always --no-startup-id $HOME/.fehbg
 
 # ENABLE NUMLOCK
 exec --no-startup-id numlockx on
 
+# Dunst (norification daemon)
+exec --no-startup-id dunst
+
+#
 #---------#
 # POLYBAR #
 #---------#
@@ -272,51 +222,22 @@ exec_always --no-startup-id ~/.config/polybar/polybar.sh
 
 # MAP APPLICATIONS TO WORKSPACES
 # assign [class="^Sublime_text$"] $ws2
-assign [class="^Thunderbird$"] $ws6
+assign [class="^Thunderbird$"] $ws4
+assign [class="Brave-browser"] $ws3
 assign [class="^vlc$"] $ws9
 
 # AUTO START APPLICATIONS
-exec --no-startup-id i3-msg 'workspace "'$ws2'"; exec termite'
-exec --no-startup-id i3-msg 'workspace "'$ws2'"; exec termite'
-exec --no-startup-id i3-msg 'workspace "'$ws3'"; exec /usr/bin/firefox'
+exec --no-startup-id i3-msg 'workspace "'$ws1'"; exec st'
+exec --no-startup-id brave
+exec --no-startup-id thunderbird
 exec --no-startup-id nm-applet
-#exec --no-startup-id i3-msg 'workspace "'$ws4'"; exec st'
 
-exec thunderbird
-#exec hexchat
-
-exec --no-startup-id i3-msg 'workspace "'$ws2'"; exec st -c cmus -e cmus'
-for_window [class="cmus"] move window to scratchpad
-
-exec --no-startup-id i3-msg 'workspace "'$ws5'"; exec urxvt256c -c matterhorn -e matterhorn'
 
 # KEYBOARD LAYOUT AND OVERRIDES
 exec_always --no-startup-id ~/.config/i3/scripts/keyboard.sh
 
 # PRINTSCREEN
-#bindsym Print exec "import Screenshot-(date +%Y-%m-%d-%H%M%S).png"
 bindsym Print exec ~/.config/i3/scripts/screenshot.sh
 
 # LOCK SCREEN
 bindsym control+mod1+l exec ~/.config/i3/scripts/rick-lock.sh
-
-#bar {
-#    position bottom
-#    status_command      i3blocks
-#    font                pango:Source Code Pro, Font Awesome 5 Free Regular 13px
-#    mode                dock
-#    workspace_buttons   yes
-#    tray_output         primary
-#    separator_symbol    "·"
-#
-#
-#    colors {
-#        background $base01
-#        statusline $base0A
-#        # class            border  backgr. text
-#        focused_workspace  $base0A $base0A #222222
-#        active_workspace   $base03 $base03 $base06
-#        inactive_workspace $base01 $base01 #888888
-#        urgent_workspace   #222222 #900000 #ffffff
-#    }
-#}
