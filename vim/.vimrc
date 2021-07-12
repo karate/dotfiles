@@ -83,6 +83,8 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 "Plug 'dense-analysis/ale'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Treesitter highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 
@@ -234,6 +236,26 @@ map <leader>/ :nohlsearch<CR>
 " Select pasted text
 nnoremap gp `[v`]
 nmap gd <Plug>(coc-definition)
+
+" Treesitter
+if has('nvim')
+  lua <<EOF
+  require'nvim-treesitter.configs'.setup {
+    highlight = {
+      enable = true
+    },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "gnn",
+        node_incremental = "grn",
+        scope_incremental = "grc",
+        node_decremental = "grm",
+      },
+    },
+  }
+EOF
+endif
 
 " Bubble single lines
 "nmap <C-S-k> :m .-2<CR>
