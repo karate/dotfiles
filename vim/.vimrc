@@ -52,7 +52,11 @@ augroup python_settings
   let g:python_recommended_style=0
   autocmd FileType javascript setlocal tabstop=2 softtabstop=2 noexpandtab shiftwidth=2
 augroup END
-
+" Recognize .drush files as php
+augroup drupal_drush_filetype
+  au!
+  autocmd BufNewFile,BufRead *.drush set filetype=php
+augroup END
 
 "" PLUGINS
 call plug#begin('~/.vim/plugged')
