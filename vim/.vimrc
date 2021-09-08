@@ -146,7 +146,8 @@ autocmd InsertLeave * set cul
 
 "" KEY MAPS
 " Leave insert mode
-inoremap jk <ESC>
+"inoremap jk <ESC>
+
 " Next/Previous window (split)
 nmap <Tab> <C-W>w
 nmap <S-Tab> <C-W>W
