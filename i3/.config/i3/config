@@ -85,7 +85,7 @@ bindsym $mod+BackSpace scratchpad show
 #----------------#
 
 # program launcher
-bindsym $mod+d exec $HOME/.config/rofi/launchers/colorful/launcher.sh
+bindsym $mod+d exec rofi -show drun -modi drun -theme $HOME/.config/rofi/karate.rasi
 
 # window switcher
 bindsym Mod4+Tab exec rofi -theme gruvbox-dark-soft -show window

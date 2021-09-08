@@ -1,0 +1,8 @@
+/** Basic config file **/
+
+configuration {
+    font:                           "DejaVuSansMono Nerd Font 10";
+    show-icons:                     true;
+    icon-theme:                     "Papirus";
+    fullscreen:                     false;
+}
