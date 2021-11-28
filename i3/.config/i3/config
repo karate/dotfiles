@@ -87,6 +87,11 @@ bindsym $mod+equal scratchpad show
 # program launcher
 bindsym $mod+d exec rofi -show drun -modi drun -theme $HOME/.config/rofi/karate.rasi
 
+# Close dunst notification
+bindsym Control+Shift+space exec dunstctl close
+bindsym Control+Shift+a exec dunstctl close-all
+bindsym Control+Shift+h exec dunstctl history-pop
+
 # window switcher
 bindsym Mod4+Tab exec rofi -theme gruvbox-dark-soft -show window
 
