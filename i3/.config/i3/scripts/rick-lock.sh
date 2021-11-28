@@ -1,4 +1,4 @@
-j!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # https://www.reddit.com/r/unixporn/comments/3358vu/i3lock_unixpornworthy_lock_screen/
 temp_file="/tmp/screen.png"
