@@ -47,9 +47,8 @@ augroup python_settings
   autocmd FileType python setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4
 augroup END
 " For js files, set indent to 2 spaces
-augroup python_settings
+augroup javasrcript_settings
   autocmd!
-  let g:python_recommended_style=0
   autocmd FileType javascript setlocal tabstop=2 softtabstop=2 noexpandtab shiftwidth=2
 augroup END
 " Recognize .drush and .module files as php
@@ -57,6 +56,11 @@ augroup drupal_drush_filetype
   au!
   autocmd BufNewFile,BufRead *.drush set filetype=php
   autocmd BufNewFile,BufRead *.module set filetype=php
+augroup END
+" Show cursorcolumn (vertical line at cursor position) in HTML files
+augroup html_cursorcolumn
+  au!
+  autocmd BufNewFile,BufRead *.html set cursorcolumn
 augroup END
 
 
