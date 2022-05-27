@@ -154,14 +154,15 @@ mode "resize" {
 for_window [class="^[Kk]eepass.*"] floating enable
 for_window [class="transmission"] floating enable
 for_window [class="Peek"] floating enable
-for_window [class="file-roller"] floating enable
+for_window [class="ark"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="dolphin"] floating enable
+for_window [class="kcalc"] floating enable
 for_window [class="org.remmina.Remmina"] floating enable
-for_window [class="blueman"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Blueman-manager"] floating enable
 # Android Studio splash screen
 for_window [class="sun-awt-X11-XWindowPeer"] floating enable
-for_window [class="osu!.exe"] floating enable
 
 
 # BORDERS
