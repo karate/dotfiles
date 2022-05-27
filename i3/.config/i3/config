@@ -242,7 +242,7 @@ exec --no-startup-id nm-applet
 exec_always --no-startup-id ~/.config/i3/scripts/keyboard.sh
 
 # PRINTSCREEN
-bindsym Print exec ~/.config/i3/scripts/screenshot.sh
+bindsym Print exec flameshot gui
 
 # LOCK SCREEN
 bindsym control+mod1+l exec ~/.config/i3/scripts/rick-lock.sh
