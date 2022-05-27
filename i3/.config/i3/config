@@ -42,10 +42,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # split in horizontal orientation
-bindsym $mod+bar split h
+bindsym $mod+apostrophe split h
 
 # split in vertical orientation
-bindsym $mod+minus split v
+bindsym $mod+percent split v
 
 # workspace variables
 set $ws1 "1:  "
