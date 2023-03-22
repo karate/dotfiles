@@ -242,6 +242,9 @@ exec --no-startup-id blueman-applet &
 # KEYBOARD LAYOUT AND OVERRIDES
 exec_always --no-startup-id ~/.config/i3/scripts/keyboard.sh
 
+# COMPOSITOR
+exec_always --no-startup-id picom
+
 # PRINTSCREEN
 bindsym Print exec flameshot gui
 
