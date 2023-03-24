@@ -227,7 +227,7 @@ exec_always --no-startup-id ~/.config/polybar/polybar.sh
 
 # MAP APPLICATIONS TO WORKSPACES
 # assign [class="^Sublime_text$"] $ws2
-assign [class="^Thunderbird$"] $ws4
+assign [class="^thunderbird$"] $ws4
 assign [class="Brave-browser"] $ws3
 assign [class="^vlc$"] $ws9
 
