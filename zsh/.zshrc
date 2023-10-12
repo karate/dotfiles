@@ -5,7 +5,7 @@ ZSH_THEME="avit_custom"
 
 #bindkey -v
 
-plugins=(git fzf drush abbrev-alias zsh-autosuggestions)
+plugins=(git fzf abbrev-alias zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
