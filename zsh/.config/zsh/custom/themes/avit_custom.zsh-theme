@@ -9,7 +9,7 @@ PROMPT='
 ${_user_host}${_current_dir} $(git_prompt_info) 
 %{$fg[$CARETCOLOR]%}$%{$resetcolor%} '
 
-RPROMPT='%{$(echotc UP 3)%} ${_return_status} %{$(echotc DO 3)%}'
+RPROMPT='%{$(echotc UP 2)%} ${_return_status} %{$(echotc DO 2)%}'
 
 # Git prompt settings
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}"
