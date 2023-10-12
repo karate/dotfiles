@@ -83,6 +83,10 @@ bindsym $mod+minus scratchpad show
 # BASIC BINDINGS #
 #----------------#
 
+# screen brightness
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
 # program launcher
 bindsym $mod+d exec rofi -show drun -modi drun -theme $HOME/.config/rofi/karate.rasi
 
