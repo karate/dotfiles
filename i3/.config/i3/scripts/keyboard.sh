@@ -4,5 +4,5 @@
 #xmodmap -e 'clear lock' -e 'keycode 0x42 = Escape'
 
 # KEYBOARD LAYOUTS
-setxkbmap -layout us,el
+setxkbmap -layout us,gr
 setxkbmap -option 'grp:alt_shift_toggle'
