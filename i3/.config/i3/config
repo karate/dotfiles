@@ -171,6 +171,9 @@ for_window [class="sun-awt-X11-XWindowPeer"] floating enable
 default_border pixel 2
 hide_edge_borders smart
 
+# GAPS
+gaps inner 5px
+smart_gaps on
 # COLORS
 ## Use Base16 color scheme https://github.com/khamer/base16-i3
 set $base00 #181818
