@@ -242,6 +242,8 @@ exec --no-startup-id thunderbird
 exec --no-startup-id blueman-applet &
 #exec --no-startup-id nm-applet
 
+# Touchpad Tap-to-click
+exec_always xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1
 
 # KEYBOARD LAYOUT AND OVERRIDES
 exec_always --no-startup-id ~/.config/i3/scripts/keyboard.sh
